@@ -1,0 +1,1 @@
+# ts-modular-monolith-template
