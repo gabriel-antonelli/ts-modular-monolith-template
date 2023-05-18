@@ -15,7 +15,7 @@ export class CreateUserController implements Controller {
         ["name", "email", "password"],
         req
       );
-      if (isRequestValid instanceof Error) {
+      if (isRequestValid !== true) {
         return badRequest(isRequestValid);
       }
       return ok(`Created user ${req.name}`);
