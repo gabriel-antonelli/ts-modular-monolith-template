@@ -1,7 +1,12 @@
 import express from "express";
-import "dotenv/config";
+import "@/config/dotenvLoader";
+import { helmetMiddleware, httpLogger } from "./middlewares";
+import { logger } from "@/config/logger";
 
 const app = express();
 const port = process.env.PORT;
 
-export const server = app.listen(port, () => console.log("Server started..."));
+app.use(helmetMiddleware, httpLogger);
+export const server = app.listen(port, () =>
+  logger.info(`Server started on port: ${port}`)
+);
