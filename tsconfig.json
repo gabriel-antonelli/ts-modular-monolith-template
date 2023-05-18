@@ -5,16 +5,16 @@
   "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
     "sourceMap": true,
-    "rootDirs": ["app", "modules", "config"],
+    "rootDirs": ["src/app", "src/modules", "src/config"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/tests/*": ["modules/tests/*"],
-      "@/modules/*": ["modules/*"],
-      "@/app/*": ["app/*"],
-      "@/config/*": ["config/*"]
+      "@/*": ["./src/*"],
+      "@/tests/*": ["src/modules/tests/*"],
+      "@/modules/*": ["src/modules/*"],
+      "@/app/*": ["src/app/*"],
+      "@/config/*": ["src/config/*"]
     }
   },
-  "include": ["app", "modules", "config"],
+  "include": ["src/app", "src/modules", "src/config"],
   "exclude": []
 }
