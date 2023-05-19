@@ -1,6 +1,6 @@
-import { HttpResponse } from "./httpResponse";
+import { HttpResponse } from './httpResponse';
 
 export interface Controller {
-  // eslint-disable-next-line
-  handle: (req: any) => Promise<HttpResponse>;
+	// eslint-disable-next-line
+	handle: (req: any) => Promise<HttpResponse>;
 }

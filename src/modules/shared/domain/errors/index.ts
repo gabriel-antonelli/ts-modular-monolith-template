@@ -1,1 +1,1 @@
-export * from "./domainError";
+export * from './domainError';

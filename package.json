@@ -2,8 +2,8 @@
   "scripts": {
     "start": "nodemon --watch './src' --exec 'ts-node src/app/index.ts' -e ts",
     "lint": "npx eslint --ext .js,.ts .",
-    "prettier": "npx prettier --write '**/*.ts'",
-    "prettier-check": "npx prettier --check '**/*.ts'"
+    "prettier": "npx prettier --config ./src/config/.prettierrc.json --write '**/*.ts'",
+    "prettier-check": "npx prettier --config ./src/config/.prettierrc.json --check '**/*.ts'"
   },
   "eslintConfig": {
     "extends": "./src/config/.eslintrc"
