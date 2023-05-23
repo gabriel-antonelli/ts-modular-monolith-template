@@ -3,7 +3,9 @@
     "start": "nodemon --watch './src' --exec 'ts-node src/app/index.ts' -e ts",
     "lint": "npx eslint --ext .js,.ts .",
     "prettier": "npx prettier --config ./src/config/.prettierrc.json --write '**/*.ts'",
-    "prettier-check": "npx prettier --config ./src/config/.prettierrc.json --check '**/*.ts'"
+    "prettier-check": "npx prettier --config ./src/config/.prettierrc.json --check '**/*.ts'",
+    "db-up": "docker-compose up -d && npm run db-push",
+    "db-push": "ts-node -r ./src/config/dotenvLoader ./node_modules/.bin/prisma db push --schema ./src/config/prisma/schema.prisma"
   },
   "eslintConfig": {
     "extends": "./src/config/.eslintrc"
