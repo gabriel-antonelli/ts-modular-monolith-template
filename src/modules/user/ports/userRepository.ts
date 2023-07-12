@@ -1,3 +1,3 @@
 export interface UserRepository {
-	create: (name: string, email: string, password: string) => Promise<void>;
+	createProfile: (id: string, bio: string) => Promise<void>;
 }

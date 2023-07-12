@@ -7,9 +7,71 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model User {
-  Id       Int    @id @default(autoincrement())
-  Email    String @unique @db.Text
-  Name     String @db.Text
-  Password String @unique
+model UserProfile {
+  Id    String  @id @default(cuid())
+  Bio   String?
+  Event Event[]
+  Chair Chair[]
+}
+
+model Event {
+  Id                Int                 @id @default(autoincrement())
+  UserId            String
+  Title             String              @db.Text
+  Subject           String[]
+  Category          String[]
+  Description       String              @db.Text
+  IsPrivate         Boolean
+  AgeGroup          String              @db.Text
+  UserProfile       UserProfile         @relation(fields: [UserId], references: [Id])
+  Room              Room[]
+  EventLocalization EventLocalization[]
+}
+
+model EventLocalization {
+  Id          Int    @id @default(autoincrement())
+  EventId     Int
+  Name        String @db.Text
+  Description String @db.Text
+  Address     String @db.Text
+  State       String @db.Text
+  City        String @db.Text
+  Country     String @db.Text
+  Event       Event  @relation(fields: [EventId], references: [Id])
+}
+
+model Room {
+  Id          Int      @id @default(autoincrement())
+  EventId     Int
+  Type        String   @db.Text
+  InitialDate DateTime
+  EndDate     DateTime
+  Duration    String
+  SeelingEnd  DateTime
+  ChairTotal  Int
+  Event       Event    @relation(fields: [EventId], references: [Id])
+  Ticket      Ticket[]
+  Chair       Chair[]
+}
+
+model Ticket {
+  Id       Int     @id @default(autoincrement())
+  RoomId   Int
+  Type     String  @db.Text
+  Price    Decimal
+  Quantity Int
+  Room     Room    @relation(fields: [RoomId], references: [Id])
+  Chair    Chair[]
+}
+
+model Chair {
+  Id                  Int         @id @default(autoincrement())
+  UserId              String
+  RoomId              Int
+  TicketId            Int
+  ChairIndetification String      @db.Text
+  UpdatedAt           DateTime    @default(now())
+  UserProfile         UserProfile @relation(fields: [UserId], references: [Id])
+  Room                Room        @relation(fields: [RoomId], references: [Id])
+  Ticket              Ticket      @relation(fields: [TicketId], references: [Id])
 }
