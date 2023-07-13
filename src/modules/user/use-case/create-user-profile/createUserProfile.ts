@@ -1,18 +1,23 @@
 import { UseCaseError } from '@/modules/shared/use-case';
 import { UserProfileCreator } from './userProfileCreator';
-import { UserRepository } from '../../ports';
-import clerk from '@clerk/clerk-sdk-node';
+import { UserInfo, UserRepository } from '../../ports';
+import { InvalidUserIdError } from './errors';
 
 export class CreateUserProfile implements UserProfileCreator {
-	constructor(private readonly userRepository: UserRepository) {}
+	constructor(
+		private readonly userRepository: UserRepository,
+		private readonly userInfo: UserInfo
+	) {}
 
-	async createUserProfile(
+	async createOrUpdateUserProfile(
 		id: string,
 		bio: string
 	): Promise<true | UseCaseError> {
-		const client = await clerk.users.getUser(id);
-		console.log(client);
-		await this.userRepository.createProfile(id, bio);
+		const isUserIdValid = this.userInfo.isUserIdValid(id);
+		if (!isUserIdValid) {
+			throw new InvalidUserIdError(id);
+		}
+		await this.userRepository.createOrUpdateUserProfile(id, bio);
 		return true;
 	}
 }

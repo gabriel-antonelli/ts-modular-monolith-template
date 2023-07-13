@@ -6,7 +6,7 @@ export const validateRequest = (
 	receivedParams: any
 ): MissingParamError | true => {
 	const missingParam = expectedParams.find(
-		(expected) => !receivedParams[expected]
+		(expected) => receivedParams[expected] === undefined
 	);
 	if (missingParam) {
 		return new MissingParamError(missingParam);

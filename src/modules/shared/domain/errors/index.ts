@@ -1,1 +1,3 @@
-export * from './domainError';
+export interface DomainError {
+	message: string;
+}
