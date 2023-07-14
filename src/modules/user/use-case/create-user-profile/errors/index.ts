@@ -1,1 +1,1 @@
-export * from './invalidUserIdError';
+export * from './userProfileAlreadySavedError';
