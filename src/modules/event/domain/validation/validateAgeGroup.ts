@@ -6,8 +6,8 @@ export const isValidAgeGroup = (ageGroup: string) => {
 	}
 	const ageGroups = Object.values(AgeGroup);
 
-	for (const ageGroup of ageGroups) {
-		if (ageGroup === ageGroup) {
+	for (const ageGroupValue of ageGroups) {
+		if (ageGroupValue === ageGroup) {
 			return true;
 		}
 	}

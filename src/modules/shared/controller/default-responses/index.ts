@@ -1,4 +1,4 @@
-import { ServerError, UnauthorizedError } from '../errors';
+import { ServerError } from '../errors';
 import { HttpResponse } from '../ports';
 
 //eslint-disable-next-line
@@ -15,9 +15,4 @@ export const serverError = (exception: Error): HttpResponse => ({
 export const badRequest = (error: Error): HttpResponse => ({
 	statusCode: 400,
 	body: error.message,
-});
-
-export const unauthorizedRequest = (): HttpResponse => ({
-	statusCode: 401,
-	body: new UnauthorizedError().message,
 });
