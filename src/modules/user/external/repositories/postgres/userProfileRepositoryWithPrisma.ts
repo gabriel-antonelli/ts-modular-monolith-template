@@ -16,7 +16,7 @@ export class UserProfileRepositoryWithPrisma implements UserProfileRepository {
 				where: {
 					Id: id,
 				},
-			})) !== undefined
+			})) !== null
 		);
 	}
 }
