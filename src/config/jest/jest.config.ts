@@ -1,20 +1,16 @@
 import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
-  rootDir: "../../../",
+	rootDir: '../../../',
 	roots: ['<rootDir>/src'],
-  coverageProvider: "v8",
-	collectCoverageFrom: [
-		'**/*.ts',
-    '!**/config/**',
-    '!**/ports/**'
-	],
+	coverageProvider: 'v8',
+	collectCoverageFrom: ['**/*.ts', '!**/config/**', '!**/ports/**'],
 	coverageDirectory: 'coverage',
 	testEnvironment: 'node',
 	transform: {
-	'^.+\\.ts?$': 'ts-jest',	
+		'^.+\\.ts?$': 'ts-jest',
 	},
-  extensionsToTreatAsEsm: ['.ts'],
+	extensionsToTreatAsEsm: ['.ts'],
 	moduleNameMapper: {
 		'@/tests/(.*)': '<rootDir>/modules/**/tests/$1',
 		'@/(.*)': '<rootDir>/src/$1',
