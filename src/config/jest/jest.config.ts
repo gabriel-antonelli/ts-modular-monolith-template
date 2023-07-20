@@ -8,7 +8,7 @@ const config: Config.InitialOptions = {
 		'**/*.ts',
 		'!**/config/**',
 		'!**/ports/**',
-		'!**/tests.**',
+		'!**/tests**',
 		'!**/dto/**',
 	],
 	coverageDirectory: 'coverage',
