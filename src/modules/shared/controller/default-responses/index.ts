@@ -16,3 +16,8 @@ export const badRequest = (error: Error): HttpResponse => ({
 	statusCode: 400,
 	body: error.message,
 });
+
+export const conflict = (error: Error): HttpResponse => ({
+	statusCode: 409,
+	body: error.message,
+});
