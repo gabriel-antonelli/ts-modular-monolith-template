@@ -22,7 +22,7 @@ describe('POST /v1/event', () => {
 		server.close();
 	});
 
-	test('Should return 200 and create user', async () => {
+	test('Should return 200 and created event', async () => {
 		const requestBody = {
 			userId: 'test',
 			category: ['Seminar'],

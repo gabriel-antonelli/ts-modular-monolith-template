@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { controllerAdapter } from '@/app/adapters/controllerAdapter';
-import { createUserProfileController } from '../user-info';
+import { createUserProfileController } from '@/modules/user-info';
 
 export default (router: Router): void => {
 	router.post(
