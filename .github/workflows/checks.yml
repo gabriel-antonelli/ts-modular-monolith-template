@@ -1,0 +1,47 @@
+name: Checks
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  Checks-Sonar:
+    name: Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Check lint
+        run: npm run lint
+
+      - name: Run Prettier
+        run: npm run prettier-check
+
+      - name: Setup docker
+        uses: KengoTODA/actions-setup-docker-compose@main
+        with:
+          version: '2.7.0'
+
+      - name: Run coverage
+        env:
+          POSTGRES_URL: ${{ secrets.POSTGRES_URL }}      
+        run: npm run test:ci
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
