@@ -1,12 +1,13 @@
 import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
-	roots: ['<rootDir>/../..'],
+  rootDir: "../../../",
+	roots: ['<rootDir>/src'],
+  coverageProvider: "v8",
 	collectCoverageFrom: [
-		'<rootDir>/../../**/*.ts',
-		'!<rootDir>/../../modules/**/ports/*.ts',
-    '!<rootDir>/../../config/*.ts',
-    '!<rootDir>/../../config/**/*.ts'
+		'**/*.ts',
+    '!**/config/**',
+    '!**/ports/**'
 	],
 	coverageDirectory: 'coverage',
 	testEnvironment: 'node',
@@ -15,8 +16,8 @@ const config: Config.InitialOptions = {
 	},
   extensionsToTreatAsEsm: ['.ts'],
 	moduleNameMapper: {
-		'@/tests/(.*)': '<rootDir>/../../modules/**/tests/$1',
-		'@/(.*)': '<rootDir>/../../$1',
+		'@/tests/(.*)': '<rootDir>/modules/**/tests/$1',
+		'@/(.*)': '<rootDir>/src/$1',
 	},
 	setupFiles: ['dotenv/config'],
 };

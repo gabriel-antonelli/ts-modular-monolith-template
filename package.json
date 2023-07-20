@@ -4,6 +4,7 @@
     "test": "jest --passWithNoTests --runInBand --no-cache",
     "test:unit": "npm test -- --c ./src/config/jest/jest-unit-config.ts",
     "test:integration": "npm run db-up && npm test -- -c ./src/config/jest/jest-integration-config.ts",
+    "test:ci": "npm run db-up && npm test -- --ci --coverage -c ./src/config/jest/jest.config.ts",
     "lint": "npx eslint --ext .js,.ts .",
     "prettier": "npx prettier --config ./src/config/.prettierrc.json --write '**/*.ts'",
     "prettier-check": "npx prettier --config ./src/config/.prettierrc.json --check '**/*.ts'",
