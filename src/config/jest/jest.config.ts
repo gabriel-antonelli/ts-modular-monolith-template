@@ -4,7 +4,13 @@ const config: Config.InitialOptions = {
 	rootDir: '../../../',
 	roots: ['<rootDir>/src'],
 	coverageProvider: 'v8',
-	collectCoverageFrom: ['**/*.ts', '!**/config/**', '!**/ports/**'],
+	collectCoverageFrom: [
+		'**/*.ts',
+		'!**/config/**',
+		'!**/ports/**',
+		'!**/tests**',
+		'!**/dto/**',
+	],
 	coverageDirectory: 'coverage',
 	testEnvironment: 'node',
 	transform: {
