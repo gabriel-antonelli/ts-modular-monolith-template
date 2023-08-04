@@ -1,7 +1,6 @@
 # TypeScript Modular API Template
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=gabriel-antonelli_ts-modular-monolith-template&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=gabriel-antonelli_ts-modular-monolith-template)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=gabriel-antonelli_ts-modular-monolith-template&metric=coverage)](https://sonarcloud.io/summary/new_code?id=gabriel-antonelli_ts-modular-monolith-template)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=gabriel-antonelli_ts-modular-monolith-template&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=gabriel-antonelli_ts-modular-monolith-template)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=gabriel-antonelli_ts-modular-monolith-template&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=gabriel-antonelli_ts-modular-monolith-template)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=gabriel-antonelli_ts-modular-monolith-template&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=gabriel-antonelli_ts-modular-monolith-template)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=gabriel-antonelli_ts-modular-monolith-template&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=gabriel-antonelli_ts-modular-monolith-template)
